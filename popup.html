@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Advanced Todo List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title">
+          <img
+            src="icons/logo.png"
+            class="logo"
+            alt="logo"
+          />
+          <h1>To Do List</h1>
+        </div>
+        <div class="header-actions">
+          <img id="themeToggle" src="icons/toggle.png" title="Toggle theme" />
+        </div>
+      </header>
+
+      <section class="add-section">
+        <!-- multiline textarea for big tasks -->
+        <textarea id="taskInput" placeholder="Add a new task..." rows="4"></textarea>
+
+        <input
+          id="taskColor"
+          type="color"
+          title="Pick task color"
+          value="#5A9"
+        />
+        <select id="taskPriority" title="Priority">
+          <option value="low">● Low</option>
+          <option value="medium" selected>★ Medium</option>
+          <option value="high">⚠️ High</option>
+        </select>
+        <input
+          id="taskReminder"
+          type="datetime-local"
+          title="Reminder (optional)"
+        />
+        <button id="addTask">Add</button>
+      </section>
+
+      <section class="controls">
+        <input id="searchTask" type="text" placeholder="Search tasks..." />
+        <div class="filters">
+          <button data-filter="all" class="filter active">All</button>
+          <button data-filter="completed" class="filter">Completed</button>
+          <button data-filter="pending" class="filter">Pending</button>
+        </div>
+      </section>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+      <!-- Recycle bin button (place this before the footer) -->
+      <section
+        class="trash-section"
+        style="margin: 8px 0 6px 0; text-align: right"
+      >
+        <button id="openTrashBtn" class="trash-btn" title="Open Recycle Bin">
+           Recycle Bin
+        </button>
+      </section>
+
+      <footer class="footer">
+        <small>Tip: Drag tasks to reorder • Click priority to change</small>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
